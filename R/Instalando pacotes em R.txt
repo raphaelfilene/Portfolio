@@ -1,0 +1,74 @@
+Instalando pacotes em R
+
+Parte da força de R é a abundância de pacotes adicionais. Para fins de demonstração, vamos instalar txtplot, uma biblioteca que gera gráficos ASCII, incluindo gráfico de dispersão, gráfico de linha, gráfico de densidade, gráfico de barras e gráfico de barras:
+
+install.packages('txtplot')
+Como parte do processo de instalação, você terá a opção de espelhos para instalar a partir de:
+
+Output
+--- Please select a CRAN mirror for use in this session ---
+HTTPS CRAN mirror
+
+1: 0-Cloud [https]                 2: Algeria [https]
+3: Australia (Melbourne) [https]   4: Australia (Perth) [https]
+5: Austria [https]                 6: Belgium (Ghent) [https]
+7: Brazil (SP 1) [https]           8: Bulgaria [https]
+9: Canada (MB) [https]            10: Chile [https]
+11: China (Beijing 4) [https]      12: Colombia (Cali) [https]
+13: Czech Republic [https]         14: Denmark [https]
+15: France (Lyon 1) [https]        16: France (Lyon 2) [https]
+17: France (Marseille) [https]     18: France (Paris 2) [https]
+19: Germany (Falkenstein) [https]  20: Germany (Münster) [https]
+21: Iceland [https]                22: Ireland [https]
+23: Italy (Padua) [https]          24: Japan (Tokyo) [https]
+25: Malaysia [https]               26: Mexico (Mexico City) [https]
+27: New Zealand [https]            28: Norway [https]
+29: Philippines [https]            30: Russia (Moscow) [https]
+31: Serbia [https]                 32: Spain (A Coruña) [https]
+33: Spain (Madrid) [https]         34: Switzerland [https]
+35: Taiwan (Chungli) [https]       36: Turkey (Denizli) [https]
+37: UK (Bristol) [https]           38: UK (Cambridge) [https]
+39: UK (London 1) [https]          40: USA (CA 1) [https]
+41: USA (IA) [https]               42: USA (KS) [https]
+43: USA (MI 1) [https]             44: USA (TN) [https]
+45: USA (TX) [https]               46: USA (WA) [https]
+47: (HTTP mirrors)
+
+Selection: 1
+Entramos 1 para o 0-Cloud, que nos conectará à Content Delivery Network (CDN) fornecida pelo RStudio, para obter a opção mais próxima geograficamente. Esse espelho será definido como o padrão para o restante da sessão. Depois de sair do R e reinserir, você será solicitado a escolher um espelho novamente.
+
+Nota: Antes da lista de espelhos, a seguinte saída mostrava onde o pacote estava sendo instalado.
+
+Output
+Installing package into ‘/usr/local/lib/R/site-library’
+(as ‘lib’ is unspecified)
+. . .
+Esse caminho de todo o site está disponível porque nós executamos o R como root e é o local correto para disponibilizar o pacote a todos os usuários.
+
+Quando a instalação estiver concluída, podemos carregar txtplot:
+
+library('txtplot')
+Se não houver mensagens de erro, a biblioteca foi carregada com sucesso. Vamos ver isso em ação agora com um exemplo que demonstra uma função básica de plotagem com rótulos de eixo. Os dados de exemplo, fornecidos pelo datasetspacote de R , contêm a velocidade dos carros e a distância necessária para parar com base nos dados da década de 1920:
+
+txtplot(cars[,1], cars[,2], xlab = "speed", ylab = "distance")
+Output
+
+      +----+-----------+------------+-----------+-----------+--+
+  120 +                                                   *    +
+      |                                                        |
+d 100 +                                                   *    +
+i     |                                    *                *  |
+s  80 +                          *         *                   +
+t     |                                       * *    *    *    |
+a  60 +                          *  *      *    *      *       +
+n     |                        *         * *  * *              |
+c  40 +                *       * *    *  *    * *              +
+e     |         *      *  * *  * *  *                          |
+   20 +           *    *  * *       *                          +
+      |  *      *    *                                         |
+    0 +----+-----------+------------+-----------+-----------+--+
+           5          10           15          20          25
+                                speed
+Se você estiver interessado em saber mais txtplot, use help ( txtplot).
+
+Qualquer pacote pré-compilado pode ser instalado a partir do CRAN install.packages(). Para saber mais sobre o que está disponível, você pode encontrar uma lista de pacotes oficiais organizados por nome ou data de publicação no link Pacotes em qualquer espelho .
