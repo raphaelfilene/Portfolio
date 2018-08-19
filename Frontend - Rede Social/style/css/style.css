@@ -1,0 +1,671 @@
+@charset "UTF-8";
+.dropdown-item:active {
+  background: none;
+  /*Necessário, pois o azul do texto-primary com o azul do fundo estavam tornando a opção na hora do click algo de mais difícil leitura*/ }
+
+body {
+  background-color: #f2f2f2;
+  margin: 0px; }
+
+a,
+a:hover {
+  text-decoration: none; }
+
+.blocos {
+  padding: 0px; }
+
+.sub-blocos {
+  background-color: white;
+  padding: 3px; }
+
+.topo {
+  vertical-align: top; }
+
+.i-b {
+  display: inline-block; }
+
+i.icone {
+  text-align: right;
+  width: 20px; }
+
+.clicavel {
+  cursor: pointer; }
+
+.centro {
+  text-align: center; }
+
+.direita {
+  text-align: right; }
+
+.negrito {
+  font-weight: bold; }
+
+/*scrollbar personalizada*/
+div::-webkit-scrollbar {
+  width: 9px; }
+
+div::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px; }
+
+div::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); }
+
+#alterar-foto-perfil {
+  font-size: 20px;
+  text-align: center; }
+
+#alterar-foto-perfil i {
+  cursor: pointer; }
+
+.qtd-votos-bool-fotos {
+  text-align: center;
+  cursor: pointer; }
+
+.qtd-votos-bool-fotos:hover {
+  font-weight: bold; }
+
+.resultado-avaliacoes {
+  text-align: left; }
+
+.qtd-likes,
+.qtd-unlikes {
+  cursor: pointer; }
+
+.qtd-likes:hover,
+.qtd-unlikes:hover {
+  font-weight: bold; }
+
+#lista-amigos-chat {
+  height: 290px;
+  overflow-y: auto; }
+
+#div-conversas {
+  border-bottom: 1px solid #c8c8c8; }
+
+.caixa-input-comentario,
+.caixa-input-resposta {
+  position: relative;
+  text-align: center; }
+
+.input-comentario {
+  width: 50%; }
+
+.input-resposta {
+  width: 40%; }
+
+.capa-foto-comentarista {
+  float: left; }
+
+.caixa-de-comentarios {
+  background-color: #f2f2f2; }
+
+.ver-mais-comentarios,
+.comentario {
+  background-color: white; }
+
+.caixa-texto textarea,
+.caixa-texto-larga textarea,
+.caixa-texto-curta textarea {
+  width: 200px;
+  resize: none; }
+
+.caixa-texto-larga textarea {
+  width: 300px; }
+
+.caixa-texto-sem-pre-def textarea {
+  resize: none; }
+
+.borda-arredondada {
+  border-radius: 5%; }
+
+.invisivel {
+  display: none; }
+
+.tipo-de-denuncia:hover {
+  font-weight: bold; }
+
+.links-com-hover {
+  padding: 5px;
+  border-radius: 5%; }
+
+.links-com-hover.selecionado,
+.links-com-hover:hover {
+  background-color: #f2f2f2; }
+
+#mensagens {
+  border-top: 1px solid #c8c8c8; }
+
+/* -------------TOPO---------------- */
+#navbar-principal {
+  padding: 0px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); }
+
+#barra-pesquisar {
+  width: 40%;
+  /*CUIDADO! Se mexer aqui, verifique como fica pra diversos tamanhos de tela, pois dependendo do tamanho que tu coloque aqui, pode desconfigurar o visual pra determinadas tamanhos de tela*/
+  display: inline-block; }
+
+#barra-pesquisar input {
+  width: 70%;
+  /*CUIDADO! Se mexer aqui, verifique como fica pra diversos tamanhos de tela, pois dependendo do tamanho que tu coloque aqui, pode desconfigurar o visual pra determinadas tamanhos de tela*/ }
+
+#navbar-topo-opcoes {
+  margin-right: 55px; }
+
+#menu-notificacoes {
+  margin-left: -200px; }
+
+.conteudo-editado {
+  background-color: #f2f2f2;
+  border-radius: 5%; }
+
+#botao-publicar-postagem {
+  width: 100px; }
+
+#input-link-video-diario {
+  width: 50%; }
+
+/* --------IMAGENS e VÍDEOS -------- */
+.x-centralizada,
+.y-centralizada {
+  overflow: hidden; }
+
+.x-centralizada img {
+  position: relative;
+  left: 50%; }
+
+.y-centralizada img {
+  position: relative;
+  top: 50%; }
+
+.img-inteira-e-centralizada {
+  overflow: hidden;
+  position: relative; }
+
+.img-inteira-e-centralizada img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto; }
+
+.capa-bordada {
+  padding: 3px;
+  border: 1px solid #c8c8c8; }
+
+#local-foto-perfil {
+  height: 180px;
+  width: 150px;
+  background-color: white; }
+
+.foto-perfil {
+  height: 100%; }
+
+.foto-perfil img {
+  height: 100%; }
+
+.debug-centralizacao {
+  /*Quando uma imagem é carregada, o valor de sua largura pode demorar um pouco para ser atualizado e assim, atrasar o efeito da função de centralizar imagens. Daí criei esta classe para evitar isto*/
+  opacity: 0; }
+
+.foto-circular {
+  overflow: hidden;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #c8c8c8;
+  text-align: left; }
+
+.conjunto-foto-nome {
+  position: relative; }
+
+.icone-status-chat {
+  position: absolute;
+  left: 32px;
+  top: 28px; }
+
+.foto-publicacao {
+  /*São as fotos postadas nas publicacoes*/
+  height: 300px;
+  text-align: left; }
+
+.foto-publicacao img {
+  max-height: 100%;
+  max-width: 100%; }
+
+.conjunto-bool-fotos {
+  text-align: center;
+  width: 100%; }
+
+.capa-bool-fotos {
+  width: 46%;
+  overflow: hidden;
+  padding: 3px; }
+
+.bool-fotos {
+  height: 180px;
+  background-color: white; }
+
+.bool-fotos img {
+  max-width: 100%;
+  max-height: 100%; }
+
+.capa-selecionavel {
+  cursor: pointer;
+  padding: 7px; }
+
+.escolhido {
+  background-color: #007bff; }
+
+.video-publicacao {
+  width: 95%;
+  text-align: center;
+  margin: auto; }
+
+.quadro-imagem-flash {
+  position: relative; }
+
+.quadro-imagens {
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border: 3px solid #c8c8c8;
+  text-align: left; }
+
+.quadro-imagens.selecionada {
+  border: 3px solid #007bff; }
+
+.quadro-imagens.selecionavel {
+  cursor: pointer; }
+
+.quadro-imagens.selecionavel:hover {
+  border: 3px solid #007bff; }
+
+.quadro-imagens img {
+  max-width: 100%;
+  max-height: 100%; }
+
+.fechar-quadro-imagens {
+  font-size: 20px;
+  font-weight: bold;
+  color: #c8c8c8;
+  text-shadow: 1px 0px white;
+  position: absolute;
+  top: -5px;
+  right: 7px;
+  cursor: pointer; }
+
+.fechar-quadro-imagens:hover {
+  color: #007bff; }
+
+.legenda-quadro-imagens {
+  font-size: 30px;
+  font-weight: bold;
+  color: #007bff;
+  position: absolute;
+  bottom: 0px;
+  right: 7px; }
+
+/* -------------FONTES---------------- */
+.fonte-minuscula {
+  font-size: 10px; }
+
+.fonte-pequena {
+  font-size: 11px; }
+
+.fonte-media {
+  font-size: 14px; }
+
+.fonte-grande {
+  font-size: 18px; }
+
+.fonte-branca,
+.fonte-branca:hover {
+  color: white; }
+
+.fonte-preta,
+.fonte-preta:hover {
+  color: black; }
+
+.nome-adj-a-foto {
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 5px; }
+
+.data-ultima-vez-visivel {
+  float: left; }
+
+#links-paginas {
+  width: 160px;
+  margin: auto; }
+
+.link-pagina {
+  cursor: pointer;
+  color: #007bff;
+  text-align: left;
+  display: block;
+  border-radius: 5%; }
+
+.chat {
+  width: 260px;
+  display: block;
+  overflow: hidden;
+  bottom: 0px;
+  position: fixed;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); }
+
+.chat-titulo {
+  background-color: #007bff;
+  cursor: pointer; }
+
+.chat-aviso {
+  background-color: white;
+  border-bottom: 1px solid #c8c8c8; }
+
+.chat-opcoes {
+  float: right;
+  position: absolute;
+  top: 0px;
+  right: 0px; }
+
+.chat-opcoes i {
+  cursor: pointer; }
+
+.chat-corpo {
+  background-color: white;
+  height: 200px;
+  display: block;
+  overflow-y: auto; }
+
+.chat-caixa-texto {
+  display: block;
+  top: 0px;
+  border-top: 1px solid #c8c8c8;
+  background-color: white; }
+
+.chat-caixa-texto textarea {
+  margin: auto; }
+
+.chat-corpo.minimizado,
+.chat-caixa-texto.minimizado {
+  display: none; }
+
+.textarea-alta textarea {
+  height: 100px; }
+
+.msg-enviada,
+.msg-recebida {
+  display: block;
+  clear: both; }
+
+.msg-enviada span,
+.msg-recebida span {
+  display: block; }
+
+.msg-enviada {
+  background-color: #91fdaa;
+  float: left; }
+
+.msg-recebida {
+  background-color: #bfedff;
+  float: right; }
+
+.data-msg {
+  float: right; }
+
+.msg-postagem-flash,
+.dia-msgs {
+  display: block;
+  clear: both; }
+
+#capa-da-lista-de-flashes {
+  display: inline-block;
+  height: 65px;
+  overflow: hidden; }
+
+.usuario-flash {
+  background-color: none;
+  margin-bottom: 20px;
+  /*para evitar que eu acabe clicando sem querer numa região que deveria estar inclicável...*/ }
+
+.usuario-flash.selecionada,
+.usuario-flash:hover {
+  background-color: #f2f2f2; }
+
+.botao-flash {
+  cursor: pointer;
+  margin: auto; }
+
+#flash-play,
+#flash-pause {
+  padding: 9px 20px; }
+
+#flash-prox,
+#flash-anterior {
+  padding: 20px 5px; }
+
+.botao-flash:hover {
+  background-color: #f2f2f2; }
+
+#flash-anterior {
+  float: left; }
+
+#flash-prox {
+  float: right; }
+
+#add-flashes {
+  position: relative;
+  float: left; }
+
+#add-flashes:hover {
+  background-color: #f2f2f2; }
+
+#add-flashes i {
+  position: absolute;
+  z-index: 100;
+  top: 70%;
+  left: 69%; }
+
+#input-flashes div {
+  cursor: pointer; }
+
+.botao-input-imagens-modais,
+#botao-input-foto-flash {
+  position: relative;
+  background-color: #c8c8c8;
+  color: white;
+  border: none; }
+
+.botao-input-imagens-modais:hover,
+#botao-input-foto-flash:hover {
+  background-color: #007bff; }
+
+.botao-input-imagens-modais i,
+#botao-input-foto-flash i {
+  position: absolute;
+  font-size: 30px;
+  top: 60%;
+  left: 60%; }
+
+.foto-flash {
+  background-color: black;
+  height: 300px;
+  text-align: left;
+  position: relative; }
+
+.foto-flash img {
+  max-height: 100%;
+  max-width: 100%; }
+
+.legenda-foto-flash {
+  position: absolute;
+  font-weight: bolder; }
+
+.input-legenda-foto-flash {
+  width: 50%;
+  margin: auto; }
+
+.borda-foto-flash {
+  border: 2px solid #c8c8c8; }
+
+.borda-foto-flash.nao-visualizado {
+  border: 2px solid #007bff; }
+
+.modal-imagem {
+  position: fixed;
+  margin: auto;
+  z-index: 99999;
+  /*era '1' pra ficar sobreposto a tudo, porém já existe o navbar do topo, então pus esse valor pra sobrepor inclusive o navbar*/
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9); }
+
+.modal-imagem-conteudo {
+  margin: auto;
+  display: block;
+  max-width: 95%;
+  max-height: 95%;
+  animation-name: zoom;
+  animation-duration: 0.6s; }
+
+@keyframes zoom {
+  from {
+    transform: scale(0); }
+  to {
+    transform: scale(1); } }
+.fechar-modal-imagem {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s; }
+
+.fechar-modal-imagem:hover,
+.fechar-modal-imagem:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer; }
+
+.quadro-cores {
+  background-color: #f2f2f2; }
+
+.quadro-cores i {
+  font-size: 30px; }
+
+#lista-pessoas-que-sigo,
+#lista-amigos {
+  max-height: 290px;
+  overflow-y: auto; }
+
+#lista-paginas {
+  max-height: 230px;
+  overflow-y: auto; }
+
+.item-pagina,
+.item-amigo,
+.item-pessoas-que-sigo {
+  overflow: hidden;
+  width: 65px;
+  height: 90px; }
+
+.quadro-imagens-menor {
+  overflow: hidden;
+  width: 57px;
+  height: 62px;
+  border: 1px solid #c8c8c8;
+  text-align: left; }
+
+.quadro-imagens-menor img {
+  max-width: 100%;
+  max-height: 100%; }
+
+#papeis-de-parede {
+  position: absolute; }
+
+.papeis-de-parede {
+  height: 250px;
+  text-align: left;
+  position: relative;
+  background-color: #f2f2f2; }
+
+.papeis-de-parede img {
+  width: 100%; }
+
+#input-papeis-de-parede {
+  position: absolute;
+  background-color: white;
+  left: 35%;
+  bottom: 7%; }
+
+#editar-perfil {
+  position: absolute;
+  left: 15px; }
+
+.privacidade_divs_perfil {
+  position: absolute;
+  right: 30px; }
+
+.item-modal-imagens {
+  position: relative; }
+
+.publicidade-central {
+  height: 230px;
+  overflow: hidden; }
+
+.publicidade-lateral {
+  height: 180px;
+  overflow: hidden; }
+
+.publicidade-central img,
+.publicidade-lateral img {
+  height: 100%; }
+
+/*Notificações de amizade*/
+.foto-notificao-amizade {
+  height: 75px;
+  width: 60px;
+  overflow: hidden; }
+
+.foto-notificao-amizade img {
+  height: 100%; }
+
+#notificacoes-amizades {
+  max-height: 190px;
+  overflow-y: auto;
+  border: 1px solid #c8c8c8; }
+
+.capa-foto-notificao-amizade {
+  clear: both; }
+
+.texto-notificacao-amizade {
+  vertical-align: top; }
+
+/*Menu de notificações*/
+#menu-notificacoes {
+  max-height: 230px;
+  overflow-y: auto; }
+
+.capa-foto-notificao {
+  clear: both; }
+
+.texto-notificacao {
+  vertical-align: top; }
+
+.foto-notificacao {
+  height: 45px;
+  width: 35px;
+  overflow: hidden; }
+
+.foto-notificacao img {
+  height: 100%; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!--ícone na aba-->
+        <link rel="shortcut icon" href="imagens/icone.png"/>
+
+		<!--jQuery-->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+		<!--Popper JS-->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+		<!--Bootstrap-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+		<!--font-awesome-->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+		
+		<!--emoji-->
+		<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+		<div id="sem-internet">
+			<!--Caso eu fique sem internet, então eu poderei usar esses links daqui. Porém, quando a internet retornar, daí automaticamente o arquivo 'evitar releitura.js' apagará essa div evitando assim uma releitura dos módulos-->
+			<!--JS pra evitar dupla leitura de módulos-->
+			<script src="js/evitar releitura.js"></script>
+
+			<!--jQuery-->
+			<script src="links-off/jquery-3.3.1.min.js"></script>
+
+			<!--Popper JS-->
+			<script src="links-off/popper.min.js"></script>
+
+			<!--Bootstrap-->
+			<link rel="stylesheet" href="links-off/bootstrap.min.css">
+			<script src="links-off/bootstrap.min.js"></script>
+
+			<!--font-awesome-->
+			<link rel="stylesheet" href="links-off/font-awesome.min.css">
+
+			<!--emoji-->
+			<link href="links-off/emoji.css" rel="stylesheet">
+		</div>
+
+		<!--Fingindo ter recebido do servidor...-->
+		<script language="javascript" src="js/servidor.js"></script>
+		
+		<!--JS-->
+		<script language="javascript" src="js/main.js"></script>
+
+		<!--CSS-->
+		<link rel="stylesheet" href="style/css/style.css">
+
+        <title></title>
+	</head>
+	
+	<body class="col-12">
+		<!--Navbar principal-->
+		<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-gradient-default cor-fundo" id="navbar-principal">
+
+			<!--Botão de expandir/encolher o navbar principal, que aparecerá quando a tela possuir determinadas tamanhos-->
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_expandida">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<!--Menu que estará sobre o efeito do 'toggle' acima-->
+			<div class="collapse navbar-collapse" id="navbar_expandida">
+
+				<!--Barra de pesquisar-->
+				<form class="form-inline" id="barra-pesquisar">
+					<div class="form-group">
+						<input class="form-control text-primary fonte-pequena" type="search" placeholder="Pesquisar">
+						<button class="form-control btn btn-primary fonte-pequena ml-1" type="Submit">
+							<i class="fa fa-search fonte-branca"></i>
+						</button>
+					</div>
+				</form>
+
+				<!--Botão com as notificações-->
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown fonte-media">
+						<a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown"><i class="fa fa-bell-o"></i></a>
+						<div class="dropdown-menu" id="menu-notificacoes"></div>
+					</li>
+				</ul>
+
+				<!--Botão do 'feed'-->
+				<ul class="navbar-nav fonte-media">
+					<li class="nav-item"><a class="nav-link text-primary" href="#" id="pag-feed">
+						<i class="fa fa-newspaper-o"></i></a>
+					</li>
+				</ul>
+
+				<!--Botão das 'opções'-->
+				<ul class="navbar-nav">
+					<li class="nav-item dropdown fonte-media pr-5" id="navbar-topo-opcoes">
+						<a class="nav-link dropdown-toggle text-primary" href="#" data-toggle="dropdown"><i class="fa fa-cogs"></i></a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item text-primary fonte-media" href="#"><i class="fa fa-wrench"></i> configurações</a>
+							<a class="dropdown-item text-primary fonte-media" href="#"><i class="fa fa-sign-out"></i> sair</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="row justify-content-center py-2">
+            <!--div para avaliar se o tamanho da tela é 'md'-->
+            <div id="tam-md" class="d-none d-md-block"></div>
+
+			<!--Bloco da esquerda-->
+			<div class="blocos mb-2 col-9 col-md-3" id="bloco-esquerda">
+				<div class="sub-blocos my-2 py-2">
+					<div class="mx-auto mt-2 capa-bordada" id="local-foto-perfil"></div>
+					<div>
+						<div id="alterar-foto-perfil">
+							<i class="fa fa-camera text-info pt-1"></i>
+						</div>
+						<div class="text-muted centro fonte-pequena my-1" id="nome-usuario"></div>
+						<div class="fonte-pequena my-2" id="links-paginas">
+							<a class="links-com-hover d-block py-1 mb-1 pl-3" href="#" id="pag-perfil"><i class="fa fa-user fonte-media mr-1 icone"></i>perfil</a>
+							<a class="links-com-hover d-block py-1 mb-1 pl-3" href="#" id="pag-diario"><i class="fa fa-book fonte-media mr-1 icone"></i>diário</a>
+							<a class="links-com-hover d-block py-1 mb-1 pl-3" href="#" id="pag-bool-album"><i class="fa fa-image fonte-media mr-1 icone"></i>bool-álbum</a>
+							<a class="links-com-hover d-block py-1 mb-1 pl-3" href="#" id="pag-memes"><i class="fa fa-smile-o fonte-media mr-1 icone"></i>memes</a>
+							<a class="links-com-hover d-block py-1 mb-1 pl-3" href="#" id="pag-frases"><i class="fa fa-pencil fonte-media mr-1 icone"></i>frases</a>
+						</div>
+					</div>
+				</div>
+				<div class="sub-blocos my-3 pt-2 pb-4 centro">
+					<div class="text-muted py-2">
+						<i class="fa fa-users fonte-media"></i>
+						<span class="i-b fonte-pequena" id="legenda-lista-amigos">amigos</span>
+					</div>
+					<div class="centro px-1 py-1 scrollbar-personalizada" id="lista-amigos"></div>
+				</div>
+                <div class="sub-blocos my-3 pt-2 pb-4 centro">
+                    <div class="text-muted py-2">
+                        <i class="fa fa-eye fonte-media"></i>
+                        <span class="i-b fonte-pequena" id="legenda-lista-pessoas-que-sigo">sigo secretamente</span>
+                    </div>
+                    <div class="centro px-1 py-1 scrollbar-personalizada" id="lista-pessoas-que-sigo"></div>
+                </div>
+				<div class="sub-blocos my-3 pt-2 pb-4 centro">
+					<div class="text-muted py-2">
+						<i class="fa fa-flag fonte-media"></i>
+						<span class="i-b fonte-pequena" id="legenda-lista-paginas">páginas</span>
+					</div>
+					<div class="centro px-1 py-1 scrollbar-personalizada" id="lista-paginas"></div>
+				</div>
+			</div>
+
+			<!--Bloco central-->
+			<div class="blocos mb-2 px-2 col-sm-11 col-md-6" id="bloco-central">
+				<div id="flashes"></div>
+				<div id="input-postagens"></div>
+				<div id="notificacoes"></div>
+				<div id="postagens"></div>
+				<div id="conversas"></div>
+			</div>
+			
+			<!--Bloco da direita-->
+			<div class="blocos mb-2 col-sm-11 col-md-3" id="bloco-direita">
+				<div class="sub-blocos my-2 pt-2 pb-4">
+                    <div class="container-fluid centro" id="amigos-chat">
+						<div class="text-muted py-2" id="div-conversas">
+							<i class="fa fa-comments fonte-media"></i>
+							<span class="i-b fonte-pequena">suas conversas</span>
+							<div class="py-1" id="status-chat"></div>
+							<input id="pesquisar-usuario" class="form-control text-muted fonte-pequena" type="search" placeholder="Pesquisar amigo">
+						</div>
+						<div class="mt-2" id="lista-amigos-chat"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

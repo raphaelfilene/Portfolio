@@ -1,0 +1,2 @@
+//caso eu esteja sem internet, esse arquivo aqui nem se quer rodará (pois necessita de jQuery). Porém, se eu estiver com internet, então esse arquivo funcionará e evitará que eu leia mais de uma vez os mesmos módulos
+$('#sem-internet').remove();

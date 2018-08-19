@@ -1,0 +1,11 @@
+<!--Rodando o $.get() (tbm serve pro ajax):
+	1)Clique com o direito nesta aba (se estiver no notepad), e clique em "Abrir o Caminho no Prompt" (pois dá já abrirá o prompt no diretório deste arquivo)
+	2)python -m SimpleHTTPServer 8000
+	3)http://127.0.0.1:8000/index.html
+	-->
+	
+	<!--Atalho pra uso do SASS:
+	1)Clique com o direito nesta aba (se estiver no notepad), e clique em "Abrir o Caminho no Prompt" (pois dá já abrirá o prompt no diretório deste arquivo)
+	
+	2)sass --watch style/scss:style/css
+-->
