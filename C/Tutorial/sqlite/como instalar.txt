@@ -1,0 +1,6 @@
+Antes de instalar, verifique se seu linux já não veio com ele, digitando sqlite3 no terminal...
+
+Abra o terminal, vá usando o comando 'cd' até o diretório da pasta sqlite-autoconf e depois digite:
+./configure --prefix = /usr/local
+sudo make
+sudo make install
