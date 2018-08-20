@@ -1,17 +1,3 @@
-/*
-#### Pra rodar este programa em particular:
-MODO 1-
-gcc main.c -l sqlite3
-./a.out (se for em linux, pois se for em windows basta clicar no executável)
-
-MODO 2- (obs: está bugando com o sqlite3) se eu tiver precisando do código objeto (o arquivo.o):
-gcc -c bibliotecas/vector.c
-gcc -c main.c
-gcc -o executavel main.o
-./executavel (se for em linux, pois se for em windows basta clicar no executável)
-
-*/
-
 //Número de argumentos que esta função terá na hora de digitar no terminal, descontando o "./nome_arquivo"
 #define NUMERO_ARGUMENTOS 0
 
@@ -25,90 +11,6 @@ gcc -o executavel main.o
 
 #include "bibliotecas/vector.c"
 #include "bibliotecas/sqlite3.c"
-
-/*Revisão sobre ponteiros
-MÉTODO DA TABELA (var & val)
-variável						|	endereço					|	valor
-	int a						|	&a							|	5
-	char *a(string disfarçada)	|	a							|	"oi, tudo bem?"
-	*p							|	p							|	&p=? (sim, necessário)
-	**pp						|	*pp							|	pp=?
-	argumento de f(arg)			|	argumento de f(*arg)		|	?
-
-
-
-EXEMPLO 1:
-int x, y, *p;y = 0;
-p = &y;
-x = *p;
-x = 4;
-(*p)++;
---x;
-(*p) += x;
-
-var		|	&		|	val	
-x		|	&x		|	?
-y		|	&y		|	?
-*p		|	p		|   &p=?
-
-y		|	&y		|	0
-*p		|	p=&y	|   &p=?
-*p		|	p=&y	|   &p=0
-
-cuidado em "x=*p;" x só copia o valor. Continuando:
-
-x		|	&x		|	0
-x		|	&x		|	4
-*p		|	p=&y	|   &p=1
-y		|	&y		|	1
-x		|	&x		|	3
-*p		|	p=&y	|   &p=4
-y		|	&y		|	4
-
-
-
-
-EXEMPLO 2:
-ERRO GRAVE:
-int *p;
-p=5;
-
-MOTIVO:
-var		|	&		|	val	
-*p		|	p		|   &p=?
-*p		|	p=5		|   &p=?
-
-perceba que eu não sei o que está na posição 5 da minha memória. Inclusive, é bem provável que tenha alguma outra coisa que esteja rodando que nem seja meu software...
-
-EXEMPLO 3:
-int x=100,*p,**pp;
-p=&x;
-pp=&p;
-
-var		|	&		|	val	
-x		|	&x		|	100
-*p		|	p		|	&p=?
-**pp	|	*pp		|	pp=?
-*p		|	p=&x	|	&p=?
-*p		|	p=&x	|	&p=100
-**pp	|	*pp		|	pp=&p=100
-
-EXEMPLO 4:
-void funcao(vector *arg){
-    arg ...
-}
-vector w;
-funcao(&w);
-
-o fato de ter *arg ali é apenas pra eu dizer pra função que lhe enviarei um ENDEREÇO. Então, eu tenho que trabalhar da seguinte forma:
-
-var		|	&			|	val	
-w		|	&w			|	?
-arg		|	*arg		|   ?
-
-daí, para chamar funcao(*arg) faço: funcao(&w), pois estão na mesma coluna.
-
-*/
 
 int main(int argc,char *argv[]){
 	/*
@@ -135,52 +37,7 @@ int main(int argc,char *argv[]){
 		exit (ERRO_ARGUMENTOS_INVALIDOS); 
 	}
 
-  	//Vector - tutorial
-	int j;
-	vector v; //declaro a variável vetor
-	vector_init(&v); //inicio o vetor
-
-	//add elementos ao vetor
-	vector_add(&v,"cachorro");
-	vector_add(&v,"gato");
-	vector_add(&v,"papagaio");
-	vector_add(&v,"peixe");
-
-	//printando os elementos
-	for(j=0;j< vector_total(&v);j++)
-	    printf("%s ",(char*)vector_get(&v,j));
-	printf("\n");
-
-	//deletando elementos do vetor
-	vector_delete(&v,3);
-	vector_delete(&v,2);
-	vector_delete(&v,1);
-
-	//alterando valor de um elemento de determinado index
-	vector_set(&v,0,"passarinho");
-
-	for(j=0;j<vector_total(&v);j++)
-	    printf("%s ",(char*)vector_get(&v,j));
-	printf("\n");
-
-	vector_free(&v); //desalocando o espaço na memória que o vetor havia ocupado
-
-	//agora farei testes com vetores de números
-	vector w;
-	int valores[4]={23,45,100,8};
-	vector_init(&w);
-	vector_add(&w,&valores[0]);
-	vector_add(&w,&valores[1]);
-	vector_add(&w,&valores[2]);
-	vector_add(&w,&valores[3]);
-
-	for(j=0;j< vector_total(&w);j++)
-	    printf("%d ",*(int*)vector_get(&w,j));
-	printf("\n");
-
-	vector_free(&w); //desalocando o espaço na memória que o vetor havia ocupado
-
-	//SQLITE3
+  	//SQLITE3
 	sqlite3 **db;
 	sqlite3 *db1=NULL; db=&db1;//para evitar erros de segmentação de memória
   	printar=0; //esta variável está declarada no módulo sqlite3, e serve para eu printar ou não as tabelas...
